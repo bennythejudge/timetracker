@@ -1,0 +1,30 @@
+# Read about s at http://api.rubyonrails.org/classes/ActiveRecord/Set.html
+
+# This model initially had no columns defined.  If you add columns to the
+# model remove the '{}' from the  names and add the columns immediately
+# below each , per the syntax in the comments below
+#
+user01:
+    fname: name01
+    lname: surname01
+    company: company01
+user02:
+   fname: marco
+   lname: rossi
+   company: company01
+user03:
+   fname: giovanni
+   lname: bianchi
+   company: company02
+user04:
+   fname: laura
+   lname: marroni
+   company: company03
+user05:
+   fname: maria
+   lname: bianchi
+   company: company02
+ben:
+   fname: benedetto
+   lname: lo giudice
+   company: springen

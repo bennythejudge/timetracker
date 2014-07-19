@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+# This model initially had no columns defined.  If you add columns to the
+# model remove the '{}' from the fixture names and add the columns immediately
+# below each fixture, per the syntax in the comments below
+#
+# work01:
+#    user:   ben
+#    project: springen
+#    datetime: 2014-07-18 08:00
+#    hours: 8.0
+<% 10.times do |n| %>
+work_<%= n %>:
+   project: <%= n>5 ? 'proj01' : 'proj02' %>
+   user: <%= n>5 ? 'ben' : 'user01' %>
+   datetimeperformed: <%= Time.now - n.days %> 
+   hours: 8
+<% end %>
+
