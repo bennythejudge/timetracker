@@ -1,0 +1,11 @@
+<h1>Companies: index</h1>
+<p>List of all Companies</p>
+
+<ul>
+   <% @companies.each do |c| %>
+      <li><%= link_to c.name, c %></li>
+   <% end %>
+
+</ul>
+
+   
