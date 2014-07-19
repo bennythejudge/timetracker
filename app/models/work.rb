@@ -15,9 +15,15 @@ class Work < ActiveRecord::Base
   #creating a method on the model that embeds a query
   scope :fullday, -> { where("hours>=8") }
   
+  def self.recentdays(numdaysago)
+    puts "qui porcoddio con #{numdaysago}"
+    since_date = Time.now - numdaysago.to_i.days
+    where("datetimeperformed > '#{since_date}")
+  end
+  
   #helper method for validation
   def datetimeperformed_cannot_be_in_the_future
-    if datetimeperformed.present? && datetimeperformed > Time.now
+    if datetimeperformed.present? && datetimeperformed > Time.now 
       errors.add(:datetimeperformed, "cannot be in the future")
     end
   end
