@@ -13,9 +13,10 @@
       <ul>
  <!-- gives the class active only to the active element -->
  <!-- comment override: now using the nav helper -->
-          <%= display_nav_item('Companies', 'companies', companies_path) %>
-          <%= display_nav_item('Projects', 'projects', projects_path) %>
-          <%= display_nav_item('Works', 'works', works_path) %>
+ <!-- third stage: using an array of hashes -->
+          <% nav_items.each do |n| %>
+             <%= display_nav_item(n[:displaytext],n[:controllername],n[:linkurl]) %>
+          <% end %>
       </ul>
    </header>
    <section id="main">
