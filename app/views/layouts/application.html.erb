@@ -2,13 +2,32 @@
 <html>
 <head>
   <title>Timetracker</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
-
-<%= yield %>
-
+<div id="container">
+   <header>
+      <ul>
+ <!-- gives the class active only to the active element -->
+         <li<%= controller_name == 'companies' ? raw(' class="active"') : '' %>><%= link_to 'Companies', companies_path %></li>
+         <li<%= controller_name == 'projects' ? raw(' class="active"') : '' %>><%= link_to 'Projects', projects_path %></li>
+         <li<%= controller_name == 'works' ? raw(' class="active"') : '' %>><%= link_to 'Works', works_path %></li>
+      </ul>
+   </header>
+   <section id="main">
+      <article>
+         <%= yield %>
+      </article>
+      <aside>
+         <%= yield :aside %>
+      </aside>
+   </section>
+   <footer>
+      <p>Time Tracker is a <em>Sample Company</em> App</p>
+   </footer>
+</div>
 </body>
 </html>

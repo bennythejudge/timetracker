@@ -8,9 +8,11 @@ proj01:
    name: Website for Springen
    company: springen
    default_rate: 60
+   slug: springen-proj
 #
 #
 proj02:
    name: Drupal installation
    company: company01
    default_rate: 30
+   slug: drupal-proj

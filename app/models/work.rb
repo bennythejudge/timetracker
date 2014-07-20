@@ -16,9 +16,9 @@ class Work < ActiveRecord::Base
   scope :fullday, -> { where("hours>=8") }
   
   def self.recentdays(numdaysago)
-    puts "qui porcoddio con #{numdaysago}"
     since_date = Time.now - numdaysago.to_i.days
-    where("datetimeperformed > '#{since_date}")
+    #puts "debugging: #{since_date}"
+    where("datetimeperformed > '#{since_date}'")
   end
   
   #helper method for validation

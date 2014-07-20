@@ -9,7 +9,11 @@ class Project < ActiveRecord::Base
   validates :default_rate, numericality: { only_integer: true, 
                                           greater_than: 50,
                                           less_than: 10000 }
-
+  # adding validation for new column slug
+  validates :slug, presence: true
+  validates :slug, length: { minimum: 3 }
+  validates :slug, uniqueness: true
+  
   
   scope :illegalrate, -> { where("default_rate < 7.5") }
   scope :minimumwage, -> { where("default_rate == 7.5") }
