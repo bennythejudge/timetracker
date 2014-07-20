@@ -10,14 +10,18 @@
 <body>
 <div id="container">
    <header>
-      <ul>
- <!-- gives the class active only to the active element -->
- <!-- comment override: now using the nav helper -->
- <!-- third stage: using an array of hashes -->
-          <% nav_items.each do |n| %>
-             <%= display_nav_item(n[:displaytext],n[:controllername],n[:linkurl]) %>
-          <% end %>
-      </ul>
+      <!-- 1st attempt <%= link_to 'Time Tracker', root_url %>  -->
+      <%= link_to content_tag('canvas', 'TimeTracker', id: 'logocanvas'), root_url %>
+      <nav>
+         <ul>
+      <!-- gives the class active only to the active element -->
+      <!-- comment override: now using the nav helper -->
+      <!-- third stage: using an array of hashes -->
+             <% nav_items.each do |n| %>
+                <%= display_nav_item(n[:displaytext],n[:controllername],n[:linkurl]) %>
+             <% end %>
+         </ul>
+      </nav>
    </header>
    <section id="main">
       <article>

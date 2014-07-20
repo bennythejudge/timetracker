@@ -1,6 +1,9 @@
 <h1>Projects: index</h1>
 <p>List of all Projects</p>
 
+<!--
+
+This was before, now a newer version with table
 <ul>
    <% @projects.each do |c| %>
       <li><%= link_to c.name, c %></li>
@@ -8,4 +11,20 @@
 
 </ul>
 
+-->
+
    
+<table>
+   <tbody>
+      <tr>
+         <th>Project</th>
+         <th>Company</th>
+      </tr>
+      <% @projects.each do |c| %>
+         <tr>
+            <td><%= link_to c.name, c %></td>
+            <td><%= link_to c.company.name, c.company %></td>
+         </tr>
+      <% end %>
+   </tbody>
+</table>
