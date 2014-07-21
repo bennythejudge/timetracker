@@ -3,4 +3,21 @@
 <li><%= @company.name %></li>
 </ul>
 
-<p><%= link_to 'All Companies', companies_path %></p>
+
+<table>
+   <tbody>
+      <tr>
+         <th>Project</th>
+         <th>Company</th>
+      </tr>
+      <% @company.projects.each do |c| %>
+         <tr>
+            <td><%= link_to c, c %></td>
+            <td><%= link_to c.company.name, c.company %></td>
+         </tr>
+      <% end %>
+   </tbody>
+</table>
+
+<!-- <p><%= link_to 'All Companies', companies_path %></p> -->
+

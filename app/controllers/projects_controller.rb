@@ -11,4 +11,7 @@ class ProjectsController < ApplicationController
       @project = Project.find(params[:id])
     end
   end
+  def new
+    
+  end
 end

@@ -4,4 +4,10 @@ class Company < ActiveRecord::Base
 
   # company name must be minimum 5 characters long
   validates :name, length: { minimum: 5 }
+  
+  # any reference to company will be replaced by the value
+  # returned
+  def to_s
+    name
+  end
 end

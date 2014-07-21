@@ -5,4 +5,9 @@
 
 <!-- works_path is the name in the index action + _path  -->
 
-<p><%= link_to 'All Works', works_path %></p>
+<!-- <p><%= link_to 'All Works', works_path %></p> -->
+
+<% content_for :aside do %>
+   <% render 'sidebar' %>
+<% end %>
+   

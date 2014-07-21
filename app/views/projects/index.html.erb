@@ -20,11 +20,17 @@ This was before, now a newer version with table
          <th>Project</th>
          <th>Company</th>
       </tr>
-      <% @projects.each do |c| %>
+      <!-- <% @projects.each do |c| %>
          <tr>
-            <td><%= link_to c.name, c %></td>
+            <td><%= link_to c, c %></td>
             <td><%= link_to c.company.name, c.company %></td>
          </tr>
-      <% end %>
+      <% end %> -->
+         <%= render partial: "project", collection: @projects %> 
    </tbody>
 </table>
+
+<% content_for :aside do %>
+   <% render 'sidebar' %>
+<% end %>
+

@@ -17,5 +17,10 @@ class Project < ActiveRecord::Base
   
   scope :illegalrate, -> { where("default_rate < 7.5") }
   scope :minimumwage, -> { where("default_rate == 7.5") }
+  
+  # adding a method to render the project
+  def to_s
+    "#{name} (#{company})"
+  end
 
 end
