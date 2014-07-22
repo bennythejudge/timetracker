@@ -1,0 +1,42 @@
+<h1>New Work</h1>
+
+<%= form_for (@work) do |w| %>
+   <div>
+      <!-- the project  -->
+      <%= w.label :project_id %>
+      <%= w.collection_select(:project_id, Project.all, :id,:name, prompt: true) %>
+   </div>
+   <div>
+      <!-- user -->
+      <%= w.label :user_id %>
+      <%= w.collection_select(:user_id, User.all.order('lname,fname'), :id, :to_s, prompt: true) %>
+   </div>
+      <!-- the date -->
+   <div>
+      <%= w.label :datetimeperformed, 'Date/Time Performed' %>
+      <%= w.datetime_select :datetimeperformed %>
+   </div>
+   <div>
+      <!-- hours -->
+      <%= w.label :hours %>
+      <%= w.select(:hours, [1,2,3,4,5,6,7,8], prompt: true) %>
+   </div>
+   <div>
+      <%= w.submit "Create Work" %>
+   </div>
+<% end %>
+
+
+<% content_for :aside do %>
+   <% render 'sidebar' %>
+<% end %>
+   
+   
+   <!-- create_table "works", force: true do |t|
+     t.integer  "project_id"
+     t.integer  "user_id"
+     t.datetime "datetimeperformed"
+     t.datetime "created_at"
+     t.datetime "updated_at"
+     t.integer  "hours"
+   end -->

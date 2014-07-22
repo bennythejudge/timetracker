@@ -1,0 +1,12 @@
+form div {
+   margin: 0 0 15px 0;
+}
+
+form label {
+   display: block;
+   font-style: italic;
+}
+
+form input {
+   padding: 5px;
+}

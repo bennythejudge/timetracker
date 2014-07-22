@@ -1,0 +1,19 @@
+<h1>New Company</h1>
+
+
+<%= form_for (@company) do |f| %>
+   <div>
+      <%= f.label :name %>
+      <%= f.text_field :name %>
+   </div>
+   <div>
+      <%= f.submit "Add Company la troia qui accanto fa schifo" %>
+   </div>
+<% end %>
+
+<!-- <%= render 'form' %> -->
+
+
+<% content_for :aside do %>
+	<%= render 'sidebar' %>
+<% end %>

@@ -7,13 +7,27 @@ class CompaniesController < ApplicationController
     @company = Company.find(params[:id])
     # format depends on the request type
     # very powerful..
-    # respond_to do |format|
-    #   format.html # just reply show html
-    #   format.xml { render xml: @company}
-    #   format.json { render json: @company}
-    # end
-  end
-  def new
+    respond_to do |format|
+      format.html # just reply show html
+      format.xml { render xml: @company}
+      format.json { render json: @company}
+    end
   end
   
+  # create an empty @company
+  def new
+    @company = Company.new
+  end
+  
+  
+	def create
+		@company = Company.new(params[:company].permit(:name))
+		if @company.save
+			flash[:notice] = 'Company Created'
+			redirect_to @company
+		else
+			render 'new'
+		end
+	end
+    
 end

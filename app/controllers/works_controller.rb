@@ -11,4 +11,10 @@ class WorksController < ApplicationController
   def show
     @work = Work.find(params[:id])
   end
+  
+  #adding the "new" function - form and all that
+  def new
+    @work = Work.new
+  end
+  
 end

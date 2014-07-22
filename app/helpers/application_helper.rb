@@ -14,7 +14,7 @@ module ApplicationHelper
         controllername: 'projects',
         linkurl: projects_path
       },
-      {sch1
+      {
         displaytext: 'Works',
         controllername: 'works',
         linkurl: works_path
