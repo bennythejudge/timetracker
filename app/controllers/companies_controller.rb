@@ -22,12 +22,31 @@ class CompaniesController < ApplicationController
   
 	def create
 		@company = Company.new(params[:company].permit(:name))
-		if @company.save
-			flash[:notice] = 'Company Created'
-			redirect_to @company
-		else
-			render 'new'
-		end
+    if @company.save
+       flash[:notice] = 'Company Created'
+       redirect_to @company
+    else
+       render 'new'
+    end
 	end
+  
+  
+  def edit
+    # find the company to edit
+    @company = Company.find(params[:id])
+  end  
+
+  def update
+    @company = Company.find(params[:id])
+    # update it!
+    if @company.update(params[:company].permit(:name))
+       flash[:notice] = 'Company Created'
+       redirect_to @company
+    else
+       render 'edit'
+    end
     
+  end
+
+
 end

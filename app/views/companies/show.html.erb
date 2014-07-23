@@ -1,8 +1,10 @@
-<h1>Companies: show</h1>
-<ul>
-<li><%= @company.name %></li>
-</ul>
+<h1><%= @company.name %></h1>
 
+<!-- edit  -->
+<p><%=  link_to 'Edit Company', edit_company_path(@company) %></p>
+
+<!-- only show if there is at least 1 project -->
+<% if @company.projects.size > 0 %>
 
 <table>
    <tbody>
@@ -19,5 +21,13 @@
    </tbody>
 </table>
 
+<% else %>
+
+<p>No Projects</p>
+
+<% end %>
 <!-- <p><%= link_to 'All Companies', companies_path %></p> -->
 
+<% content_for :aside do %>
+	<%= render 'sidebar' %>
+<% end %>

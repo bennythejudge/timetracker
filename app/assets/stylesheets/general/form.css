@@ -10,3 +10,17 @@ form label {
 form input {
    padding: 5px;
 }
+
+div#errors {
+   color:#900;
+   font-weight:bold;
+}
+
+form div.field_with_errors {
+   margin-bottom:0;
+}
+
+form div.field_with_errors label {
+   color:#900;
+   font-weight:bold;
+}

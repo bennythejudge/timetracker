@@ -1,5 +1,16 @@
 <h1>New Work</h1>
 
+<% if @work.errors.any? %>
+   <div id="errors">
+      <p>Please correct the following <%= pluralize(@work.errors.count, "error") %>:</p>
+      <ul>
+         <% @work.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+         <% end %>
+      </ul>
+   </div>
+<% end %> 
+
 <%= form_for (@work) do |w| %>
    <div>
       <!-- the project  -->
@@ -30,13 +41,3 @@
 <% content_for :aside do %>
    <% render 'sidebar' %>
 <% end %>
-   
-   
-   <!-- create_table "works", force: true do |t|
-     t.integer  "project_id"
-     t.integer  "user_id"
-     t.datetime "datetimeperformed"
-     t.datetime "created_at"
-     t.datetime "updated_at"
-     t.integer  "hours"
-   end -->

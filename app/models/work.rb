@@ -7,8 +7,8 @@ class Work < ActiveRecord::Base
                                     greater_than: 0, 
                                     less_than_or_equal_to: 8 }
   validates :datetimeperformed, presence: true
-  validates :project, presence: true
-  validates :user, presence: true
+  validates :project_id, presence: true
+  validates :user_id, presence: true
   # notate is validate not validates
   validate :datetimeperformed_cannot_be_in_the_future 
   
