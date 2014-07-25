@@ -17,13 +17,27 @@ class WorksController < ApplicationController
     @work = Work.new
   end
   
+  # modifying for ajax. i need to react depending 
+  # of where the request came from
   def create
     @work = Work.new(params[:work].permit(:project_id, :user_id, :datetimeperformed, :hours))
-    if @work.save
-      flash[:notice] = 'Work Added'
-      redirect_to @work
-    else
-      render 'new'
+    # if @work.save
+    #   flash[:notice] = 'Work Added'
+    #   redirect_to @work
+    # else
+    #   render 'new'
+    # end
+    respond_to do |format|
+      if @work.save
+        format.html {redirect_to @work, notice: 'Work Created' }
+        # convention over configuration
+        # look for a view template of the new name 
+        # see create.js.erb in views/works
+        format.js { }
+      else
+        format.html {render 'new'}
+        format.js { }
+      end
     end
   end
   

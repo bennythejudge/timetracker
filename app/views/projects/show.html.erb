@@ -1,33 +1,44 @@
 <h1>Project: <%= @project.name %></h1>
 
-<!-- edit  -->
-<p><%=  link_to 'Edit Project', edit_project_path(@project) %></p>
-
 <p>Company: <%= @project.company.name %></p>
 <p>Default rate: <%= @project.default_rate %></p>
 <p>Slug: <%= @project.slug %></p>
 
-<table>
-   <tbody>
-      <tr>
-         <th>View</th>
-         <th>Consultant</th>
-         <th>Project</th>
-         <th>Date & Time</th>
-         <th>Hours</th>
-      </tr>
-      <!-- <% @project.works.each do |w| %>
-         <tr>
-            <td><center><%= link_to 'View', w %></center></td>
-            <td><%= w.user %></td>
-            <td><%= w.project %></td>
-            <td><%= w.datetimeperformed.strftime("%Y-%m-%d %H:%M") %></td>
-            <td><%= w.hours %></td>
+<!-- edit  -->
+<p><%=  link_to 'Edit Project', edit_project_path(@project) %></p>
+
+<!-- for ajax -->
+<div class="remoteform">
+   <h2>Add Work</h2>
+   <%= render partial: 'works/form', locals: {doajax: true} %>
+</div>
+
+
+<% if @project.works.size > 0 %>
+   <table>
+      <tbody>
+         <tr id="headerrow">
+            <th>View</th>
+            <th>Consultant</th>
+            <th>Project</th>
+            <th>Date & Time</th>
+            <th>Hours</th>
          </tr>
-      <% end %>    -->
-      <%= render partial: "works/work", collection: @project.works %> 
-   </tbody>
-</table>
+         <!-- <% @project.works.each do |w| %>
+            <tr>
+               <td><center><%= link_to 'View', w %></center></td>
+               <td><%= w.user %></td>
+               <td><%= w.project %></td>
+               <td><%= w.datetimeperformed.strftime("%Y-%m-%d %H:%M") %></td>
+               <td><%= w.hours %></td>
+            </tr>
+         <% end %>    -->
+         <%= render partial: "works/work", collection: @project.works %> 
+      </tbody>
+   </table>
+<% else %>
+   <p>No work items</p>
+<% end  %>
 
 <!-- <p><%= link_to 'All Projects', projects_path %></p> -->
 <% content_for :aside do %>

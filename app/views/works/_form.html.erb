@@ -1,3 +1,4 @@
+<!-- gestione errori -->
 <% if @work.errors.any? %>
    <div id="errors">
       <p>Please correct the following <%= pluralize(@work.errors.count, "error") %>:</p>
@@ -9,7 +10,10 @@
    </div>
 <% end %> 
 
-<%= form_for (@work) do |w| %>
+<!-- adding ajax -->
+<% doajax = false unless (defined? doajax) %>
+
+<%= form_for(@work, remote: doajax) do |w| %>
    <div>
       <!-- the project  -->
       <%= w.label :project_id %>

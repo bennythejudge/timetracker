@@ -24,3 +24,10 @@ form div.field_with_errors label {
    color:#900;
    font-weight:bold;
 }
+
+/* for using ajax in the form */
+div.remoteform {
+   background-color:#eee;
+   padding:10px;
+   margin-bottom:20px;
+}

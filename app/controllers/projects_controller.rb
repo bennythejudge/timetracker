@@ -3,6 +3,7 @@ class ProjectsController < ApplicationController
     @projects = Project.all
   end
   # any @ variable is visibale from the views
+  
   def show
     puts "inside projects controller"
     if (params[:slug])
@@ -10,7 +11,12 @@ class ProjectsController < ApplicationController
     else
       @project = Project.find(params[:id])
     end
+    # adding ajax to the project 
+    # the works form expects the variable @work
+    @work = Work.new
+    @work.project = @project
   end
+  
   def new
     @project = Project.new   
   end
