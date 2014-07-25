@@ -1,4 +1,7 @@
-<h1>Projects: <%= @project.name %></h1>
+<h1>Project: <%= @project.name %></h1>
+
+<!-- edit  -->
+<p><%=  link_to 'Edit Project', edit_project_path(@project) %></p>
 
 <p>Company: <%= @project.company.name %></p>
 <p>Default rate: <%= @project.default_rate %></p>

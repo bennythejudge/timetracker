@@ -1,0 +1,36 @@
+<% if @work.errors.any? %>
+   <div id="errors">
+      <p>Please correct the following <%= pluralize(@work.errors.count, "error") %>:</p>
+      <ul>
+         <% @work.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+         <% end %>
+      </ul>
+   </div>
+<% end %> 
+
+<%= form_for (@work) do |w| %>
+   <div>
+      <!-- the project  -->
+      <%= w.label :project_id %>
+      <%= w.collection_select(:project_id, Project.all, :id,:name, prompt: true) %>
+   </div>
+   <div>
+      <!-- user -->
+      <%= w.label :user_id %>
+      <%= w.collection_select(:user_id, User.all.order('lname,fname'), :id, :to_s, prompt: true) %>
+   </div>
+      <!-- the date -->
+   <div>
+      <%= w.label :datetimeperformed, 'Date/Time Performed' %>
+      <%= w.datetime_select :datetimeperformed %>
+   </div>
+   <div>
+      <!-- hours -->
+      <%= w.label :hours %>
+      <%= w.select(:hours, [1,2,3,4,5,6,7,8], prompt: true) %>
+   </div>
+   <div>
+      <%= w.submit @work.new_record? ? "Create Work" : "Update Work" %>
+   </div>
+<% end %>

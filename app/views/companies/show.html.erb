@@ -1,7 +1,8 @@
-<h1><%= @company.name %></h1>
-
+<h1>Company: <%= @company.name %></h1>
 <!-- edit  -->
 <p><%=  link_to 'Edit Company', edit_company_path(@company) %></p>
+
+
 
 <!-- only show if there is at least 1 project -->
 <% if @company.projects.size > 0 %>

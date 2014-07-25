@@ -24,6 +24,21 @@ class ProjectsController < ApplicationController
       render 'new'
     end
   end
-
+  
+  def edit
+    # find the project to edit
+    @project = Project.find(params[:id])
+  end
+  
+  def update
+    @project = Project.find(params[:id])
+    # update it!
+    if @project.update(params[:project].permit(:name))
+       flash[:notice] = 'Project Updated'
+       redirect_to @project
+    else
+       render 'edit'
+    end    
+  end
   
 end

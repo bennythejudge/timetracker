@@ -40,12 +40,11 @@ class CompaniesController < ApplicationController
     @company = Company.find(params[:id])
     # update it!
     if @company.update(params[:company].permit(:name))
-       flash[:notice] = 'Company Created'
+       flash[:notice] = 'Company Updated'
        redirect_to @company
     else
        render 'edit'
-    end
-    
+    end    
   end
 
 

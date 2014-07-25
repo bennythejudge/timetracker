@@ -26,4 +26,21 @@ class WorksController < ApplicationController
       render 'new'
     end
   end
+  
+  def edit
+    # find the project to edit
+    @work = Work.find(params[:id])
+  end
+  
+  def update
+    @work = Work.find(params[:id])
+    # update it!
+    if @work.update(params[:work].permit(:project_id, :user_id, :datetimeperformed, :hours))
+       flash[:notice] = 'Work Updated'
+       redirect_to @work
+    else
+       render 'edit'
+    end    
+  end
+  
 end
