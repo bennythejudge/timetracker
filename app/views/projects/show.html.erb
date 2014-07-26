@@ -24,15 +24,7 @@
             <th>Date & Time</th>
             <th>Hours</th>
          </tr>
-         <!-- <% @project.works.each do |w| %>
-            <tr>
-               <td><center><%= link_to 'View', w %></center></td>
-               <td><%= w.user %></td>
-               <td><%= w.project %></td>
-               <td><%= w.datetimeperformed.strftime("%Y-%m-%d %H:%M") %></td>
-               <td><%= w.hours %></td>
-            </tr>
-         <% end %>    -->
+ 
          <%= render partial: "works/work", collection: @project.works %> 
       </tbody>
    </table>

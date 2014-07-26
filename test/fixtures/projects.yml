@@ -16,3 +16,15 @@ proj02:
    company: company01
    default_rate: 30
    slug: drupal-proj
+#
+proj03:
+   name: Pulire le scale del condominio
+   company: shellco
+   default_rate: 20
+   slug: scale
+#
+proj04:
+   name: Magento Store
+   company: bennythejudge
+   default_rate: 25
+   slug: store

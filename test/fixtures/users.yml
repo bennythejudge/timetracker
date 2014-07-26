@@ -8,23 +8,29 @@ user01:
     fname: name01
     lname: surname01
     company: company01
+    email: email@email.com
 user02:
    fname: marco
    lname: rossi
    company: company01
+   email: email01@email.com
 user03:
    fname: giovanni
    lname: bianchi
    company: company02
+   email: email02@email.com
 user04:
    fname: laura
    lname: marroni
    company: company03
+   email: email03@email.com
 user05:
    fname: maria
    lname: bianchi
    company: company02
+   email: email04@email.com
 ben:
    fname: benedetto
    lname: lo giudice
    company: springen
+   email: email05@email.com

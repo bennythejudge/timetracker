@@ -9,7 +9,7 @@ class Project < ActiveRecord::Base
   #validates :name, uniqueness: true
   validates :company_id, presence: true
   validates :default_rate, numericality: { only_integer: true, 
-                                          greater_than: 50,
+                                          greater_than: 8,
                                           less_than: 10000 }
   # adding validation for new column slug
   validates :slug, presence: true

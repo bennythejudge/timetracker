@@ -1,6 +1,6 @@
 class CompaniesController < ApplicationController
   def index
-    @companies = Company.all
+    @companies = Company.all.order('name')
   end
   # any @ variable is visibale from the views
   def show

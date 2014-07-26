@@ -2,7 +2,7 @@
 	$('<div id="errors"><p>Please correct the following <%= pluralize(@work.errors.count, "error") %>:</p><ul><% @work.errors.full_messages.each do |msg| %><li><%= msg %></li><% end %></ul></div>').insertBefore('div.remoteform h2');
 <% else %>
 	$('div#errors').remove();
-	$('<tr><td><%= link_to 'View', @work %></td><td><%= @work.user %></td><td><%= link_to @work.project, @work.project %></td><td><%= @work.datetimeperformed.strftime("%m/%d/%Y %H:%M") %></td><td><%= @work.hours %></td></tr>').insertAfter('tr#headerrow');
+	$('<tr><td><%= link_to 'View', @work %></td><td><%= @work.user %></td><td><%= @work.project %></td><td><%= @work.datetimeperformed.strftime("%m/%d/%Y %H:%M") %></td><td><%= @work.hours %></td></tr>').insertAfter('tr#headerrow');
 <% end %>
 
 

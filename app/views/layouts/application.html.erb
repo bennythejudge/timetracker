@@ -25,8 +25,11 @@
    </header>
    <section id="main">
       <article>
-         <% if flash[:notice] %>
-            <div class="flash notice"><%= flash[:notice] %></div>
+         <!-- show both notice and alert -->
+         <% [:notice, :alert].each do |level| %>
+            <% if flash[level] %>
+               <div class="flash <%= level %>"><%= flash[level] %></div>
+            <% end %>
          <% end %>
          <%= yield %>
       </article>
