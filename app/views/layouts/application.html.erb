@@ -23,6 +23,7 @@
          </ul>
       </nav>
    </header>
+   <!-- <div>Your IP is <%= request.remote_ip %></div> -->
    <section id="main">
       <article>
          <!-- show both notice and alert -->
@@ -34,6 +35,7 @@
          <%= yield %>
       </article>
       <aside>
+         <%= user_logged_in_msg %>
          <%= yield :aside %>
       </aside>
    </section>
