@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+   </head>
+   <body>
+      <h1>Work Created</h1>
+      <p>User <%= @work.user %> posted a work item:
+      <br><%= @work.created_at.strftime('%Y-%m-%d %I:%M %p') %>
+      <br>Project: <%= @work.project.name %>
+      <br>Hours: <%= @work.hours %></p>
+   </body>
+</html>

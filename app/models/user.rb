@@ -6,6 +6,8 @@ class User < ActiveRecord::Base
   belongs_to  :company
   has_many    :works
   has_many    :projects, :through => :works
+  # adding as a consequence of adding a user_id column to the projects table
+  has_many    :projects
   
   validates :lname, length: { minimum: 5 }
   validates :fname, length: { minimum: 2 }

@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+   </head>
+   <body>
+      <h1>Existing Project updated</h1>
+      <p>User <%= @project.user %> updated an existing Project:
+      <br><%= @project.created_at.strftime('%Y-%m-%d %I:%M %p') %>
+      <br>Project: <%= @project.name %>
+   </body>
+</html>

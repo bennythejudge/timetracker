@@ -3,6 +3,7 @@
 <p>Company: <%= @project.company.name %></p>
 <p>Default rate: <%= @project.default_rate %></p>
 <p>Slug: <%= @project.slug %></p>
+<p>Owner: <%= @project.user %></p>
 
 <!-- edit  -->
 <p><%=  link_to 'Edit Project', edit_project_path(@project) %></p>
@@ -13,7 +14,10 @@
    <%= render partial: 'works/form', locals: {doajax: true} %>
 </div>
 
+<!-- c'e' un problema: quando il progetto non ha work items, aggiungendo -->
+<!-- il primo work item la pagina non viene aggiornata via ajax -->
 
+<p>Total number of work items for this project: <%= @project.works.size %></p>
 <% if @project.works.size > 0 %>
    <table>
       <tbody>

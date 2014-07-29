@@ -2,6 +2,10 @@ class Project < ActiveRecord::Base
   belongs_to  :company
   has_many    :works
   has_many    :users, :through => :works
+  # adding as a consequence of adding a user_id column to the projects table
+  belongs_to  :user
+  
+  
   
   validates :name, presence: true
   validates :name, length: { minimum: 5 }
@@ -15,7 +19,6 @@ class Project < ActiveRecord::Base
   validates :slug, presence: true
   validates :slug, length: { minimum: 3 }
   validates :slug, uniqueness: true
-  
   
   scope :illegalrate, -> { where("default_rate < 7.5") }
   scope :minimumwage, -> { where("default_rate == 7.5") }

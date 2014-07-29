@@ -24,7 +24,7 @@ class ProjectsController < ApplicationController
   end
   
   def create
-    @project = Project.new(params[:project].permit(:name, :slug, :company_id, :default_rate))
+    @project = Project.new(params[:project].permit(:name, :slug, :company_id, :default_rate, :user_id))
     if @project.save
       flash[:notice] = 'Project Added'
       redirect_to @project
@@ -41,7 +41,8 @@ class ProjectsController < ApplicationController
   def update
     @project = Project.find(params[:id])
     # update it!
-    if @project.update(params[:project].permit(:name))
+    if @project.update(params[:project].permit(:name,:slug,:company_id,:default_rate,:user_id))
+       Usermailer.projectupdated_email(@project).deliver
        flash[:notice] = 'Project Updated'
        redirect_to @project
     else

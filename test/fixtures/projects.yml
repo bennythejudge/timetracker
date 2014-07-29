@@ -9,6 +9,7 @@ proj01:
    company: springen
    default_rate: 60
    slug: springen-proj
+   user: user01
 #
 #
 proj02:
@@ -16,15 +17,18 @@ proj02:
    company: company01
    default_rate: 30
    slug: drupal-proj
+   user: user01
 #
 proj03:
    name: Pulire le scale del condominio
    company: shellco
    default_rate: 20
    slug: scale
+   user: user01
 #
 proj04:
    name: Magento Store
    company: bennythejudge
    default_rate: 25
    slug: store
+   user: user01

@@ -19,6 +19,7 @@ class WorksController < ApplicationController
   
   # modifying for ajax. i need to react depending 
   # of where the request came from
+  # adding sending an email when a new item is created
   def create
     @work = Work.new(params[:work].permit(:project_id, :user_id, :datetimeperformed, :hours))
     # if @work.save
@@ -29,6 +30,7 @@ class WorksController < ApplicationController
     # end
     respond_to do |format|
       if @work.save
+        Usermailer.workcreated_email(@work).deliver
         format.html {redirect_to @work, notice: 'Work Created' }
         # convention over configuration
         # look for a view template of the new name 
