@@ -3,6 +3,11 @@ class ProjectsController < ApplicationController
   
   def index
     @projects = Project.all
+    # handle multiple format requests - not only html
+    respond_to do |format|
+      format.html
+      format.csv { send_data Project.export_csv(@projects), type: 'text/csv; charset=utf-8; header=present', disposition: 'attachment: filename=projects.csv'}
+    end
   end
   # any @ variable is visibale from the views
   

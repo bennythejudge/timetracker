@@ -8,35 +8,35 @@ user01:
     fname: name01
     lname: surname01
     company: company01
-    email: logube@gmail.com
+    email: m253ou@gmail.com
     encrypted_password: <%= User.new.send(:password_digest, 'password') %>
 user02:
    fname: marco
    lname: rossi
    company: company01
-   email: m253ou@gmail.com
+   email: blabla@gmail.com
    encrypted_password: <%= User.new.send(:password_digest, 'password') %>
 user03:
    fname: giovanni
    lname: bianchi
    company: company02
-   email: benedettologiudice@gmail.com
+   email: blabla@gmail.com
    encrypted_password: <%= User.new.send(:password_digest, 'password') %>
 user04:
    fname: laura
    lname: marroni
    company: company03
-   email: bandierarossa@gmail.com
+   email: blabla@gmail.com
    encrypted_password: <%= User.new.send(:password_digest, 'password') %>
 user05:
    fname: maria
    lname: bianchi
    company: company02
-   email: logube2@gmail.com
+   email: blabla@gmail.com
    encrypted_password: <%= User.new.send(:password_digest, 'password') %>
 ben:
    fname: benedetto
    lname: lo giudice
    company: springen
-   email: benlog@me.com
+   email: blabla@me.com
    encrypted_password: <%= User.new.send(:password_digest, 'password') %>
