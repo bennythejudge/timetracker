@@ -13,7 +13,8 @@
 <!-- adding ajax -->
 <% doajax = false unless (defined? doajax) %>
 
-<%= form_for(@work, remote: doajax) do |w| %>
+<!-- the html multipart is necessary for file uploading - not sure why -->
+<%= form_for(@work, remote: doajax, :html => { :multipart => true} ) do |w| %>
    <div>
       <!-- the project  -->
       <%= w.label :project_id %>
@@ -34,6 +35,16 @@
       <%= w.label :hours %>
       <%= w.select(:hours, [1,2,3,4,5,6,7,8], prompt: true) %>
    </div>
+   <!-- only show the file upload button if this is not the embedded form inside projects -->
+   <!-- this is because I want to keep the file upload to the new work form  -->
+   <% if !doajax %>
+      <!-- to allow users to upload files for each work item -->
+      <!-- note it's note in the format f.something -->
+      <div>
+         <%= label_tag :doc, 'Notes (optional)' %>
+         <%= file_field_tag :doc %>
+      </div>
+   <% end %>
    <div>
       <%= w.submit @work.new_record? ? "Create Work" : "Update Work" %>
    </div>

@@ -7,7 +7,9 @@
 <p>Project Name: <%= @work.project.name %></p>
 <p>Hours: <%= @work.hours %></p>
 <p>User: <%= @work.user.lname %> <%= @work.user.fname %></p>
-
+<% if @work.doc  %>
+   <p>Attachment(s): <%= link_to @work.doc, "/uploads/#{@work.doc}", :target => "_blank"  %></p>
+<% end %>
 <!-- works_path is the name in the index action + _path  -->
 
 <!-- <p><%= link_to 'All Works', works_path %></p> -->
