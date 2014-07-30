@@ -30,10 +30,12 @@ class Project < ActiveRecord::Base
   # it expects a collection (@project)
   # the << adds to the csv entity
   def self.export_csv(projects)
+    puts "HERE CSV"
+    myCols = []
     CSV.generate do |csv|
-      csv << column_names
+      csv << [ 'name', 'company','default_rate','created_at','owner','most recent work item']
       projects.each do |p|
-        csv << p.attributes .values_at(*column_names)
+        csv << [ p.name, p.company,p.default_rate,p.created_at,p.user,p.works.last]
       end
     end
   end
