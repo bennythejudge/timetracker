@@ -17,3 +17,6 @@
 
 # don't push the gems
 /vendor/bundle/gems
+
+# ignore uploads
+/public/uploads
