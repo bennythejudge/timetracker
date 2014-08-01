@@ -6,13 +6,13 @@ class Usermailer < ActionMailer::Base
   def workcreated_email(work)
     print "inside workcreated_email"
     @work = work
-    mail(to: work.project.user.email, subject: "Work Item Posted")
+    mail(to: work.project.owner.email, subject: "Work Item Posted")
   end
   
   def projectupdated_email(project)
     print "inside projectcreated_email"
     @project = project
-    mail(to: project.user.email, subject: "New project created")
+    mail(to: project.owner.email, subject: "New project created")
   end
 
 end

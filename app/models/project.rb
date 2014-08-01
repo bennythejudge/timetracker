@@ -3,7 +3,7 @@ class Project < ActiveRecord::Base
   has_many    :works
   has_many    :users, :through => :works
   # adding as a consequence of adding a user_id column to the projects table
-  belongs_to  :user
+  belongs_to  :owner, class_name: "User"
   
   validates :name, presence: true
   validates :name, length: { minimum: 5 }

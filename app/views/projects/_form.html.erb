@@ -28,8 +28,8 @@
       <%= p.collection_select(:company_id, Company.all, :id,:name, prompt: true) %>
    </div>
    <div>
-      <%= p.label :user_id %>
-      <%= p.collection_select(:user_id, User.all.order('lname,fname'), :id, :to_s, prompt: true) %>
+      <%= p.label :owner    %>
+      <%= p.collection_select(:owner, User.all.order('lname,fname'), :id, :to_s, prompt: true) %>
    </div>
    <div>
       <%= p.submit @project.new_record? ? "Create Project" : "Update Project" %>

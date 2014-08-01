@@ -3,7 +3,7 @@
 <p>Company: <%= @project.company.name %></p>
 <p>Default rate: <%= @project.default_rate %></p>
 <p>Slug: <%= @project.slug %></p>
-<p>Owner: <%= @project.user %></p>
+<p>Owner: <%= @project.owner %></p>
 
 <!-- edit  -->
 <p><%=  link_to 'Edit Project', edit_project_path(@project) %></p>
