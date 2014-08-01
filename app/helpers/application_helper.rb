@@ -43,4 +43,23 @@ module ApplicationHelper
     str+="</div>"
     raw(str)
   end
+  
+  # helper for new aside refactoring
+  # sessions and registrations are "devise" controllers
+  def sidebar
+    unless ['sessions','registratons'].include?(controller_name)
+      index_title = "NEW All #{controller_name.capitalize}"
+      index_path  = "#{controller_name}_path"
+      new_title   = "New blabla #{controller_name.singularize.capitalize}"
+      new_path    = "new_#{controller_name.singularize}_path"
+      # normally you don't want to do eval with data that comes from
+      # internet, it could contain inject code. here it's ok because I 
+      # know what's inside the variable
+      raw ("Helper<ul>
+          <li>NEW #{link_to index_title, eval(index_path)}</li>
+          <li>NEW #{link_to new_title, eval(new_path)}</li>
+        </ul>")
+    end
+  end
+  
 end
