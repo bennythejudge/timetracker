@@ -1,12 +1,19 @@
 class WorksController < ApplicationController
-  before_action :authenticate_user!, only: [:new, :create]
+  before_action :authenticate_user!, only: [:new, :create, :edit, :update]
   
   def index
     # if i get the :days parameter then show only the recentdays works
     if ( params[:days] )
-      @works = Work.recentdays(params[:days]).order('datetimeperformed desc')
+      # with pagination
+      @works = Work.recentdays(params[:days]).order('datetimeperformed desc').paginate(:page => params[:page])
+      # before pagination
+      # @works = Work.recentdays(params[:days]).order('datetimeperformed desc')
+      # my attempt: it works but no styling and no table
+      #@works = Work.paginate(:page => params[:page], :per_page => 5)
     else
-      @works = Work.all.order('datetimeperformed desc')
+      @works = Work.all.order('datetimeperformed desc').paginate(:page => params[:page])
+      # before
+      # @works = Work.all.order('datetimeperformed desc')
     end
   end
   # any @ variable is visibale from the views
@@ -28,7 +35,7 @@ class WorksController < ApplicationController
     puts current_user
     puts "****************************************************"
     
-      @work = Work.new(params[:work].permit(:project_id, :user_id, :datetimeperformed, :hours, :doc))
+      @work = Work.new(params[:work].permit(:project_id, :datetimeperformed, :hours, :doc))
       # adding the file upload feature
       # uploaded_io gets the file name from the form
       if (params[:doc])
@@ -39,6 +46,7 @@ class WorksController < ApplicationController
           end
           @work.doc = uploaded_io.original_filename
       end
+      # use current use as user - cannot be chosen
       @work.user = current_user
       respond_to do |format|
         if @work.save
@@ -62,8 +70,10 @@ class WorksController < ApplicationController
   
   def update
     @work = Work.find(params[:id])
+    # set user to current user
+    @work.user = current_user
     # update it!
-    if @work.update(params[:work].permit(:project_id, :user_id, :datetimeperformed, :hours, :doc))
+    if @work.update(params[:work].permit(:project_id, :datetimeperformed, :hours, :doc))
        flash[:notice] = 'Work Updated'
        redirect_to @work
     else

@@ -1,0 +1,36 @@
+<h1>Works: index</h1>
+<p>List of all Works</p>
+
+<!-- <ul>
+   <% @works.each do |w| %>
+      <li><%= link_to w, w %></li>
+   <% end %>
+</ul> -->
+   
+<table>
+   <tbody>
+      <tr>
+         <th>View</th>
+         <th>Consultant</th>
+         <th>Project</th>
+         <th>Date & Time</th>
+         <th>Hours</th>
+         <th>Attachment(s)</th>
+      </tr>
+      <!-- <% @works.each do |w| %>
+         <tr>
+            <td><center><%= link_to 'View', w %></center></td>
+            <td><%= w.user %></td>
+            <td><%= w.project %></td>
+            <td><%= w.datetimeperformed.strftime("%Y-%m-%d %H:%M") %></td>
+            <td><%= w.hours %></td>
+         </tr>
+      <% end %>    -->
+      <%= render partial: "work", collection: @works %>   
+   </tbody>
+</table>
+
+<% content_for :aside do %>
+   <% render 'sidebar' %>
+<% end %>
+   

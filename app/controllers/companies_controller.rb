@@ -1,6 +1,6 @@
 class CompaniesController < ApplicationController
-  before_action :authenticate_user!, only: [:new, :create]
-  before_action :is_user_admin, only: [:create, :new]
+  before_action :authenticate_user!, only: [:new, :create, :edit, :update]
+  before_action :is_user_admin, only: [:create, :new, :edit, :update]
   
   def index
     @companies = Company.all.order('name')
@@ -52,14 +52,17 @@ class CompaniesController < ApplicationController
   
   
   def is_user_admin
-    if current_user && current_user.admin_role
-      puts "green light"
-    else
-      puts "red light"
-      flash[:alert] = 'Only admins can add companies'
-      @companies = Company.all
-      render 'index'
-    end
+    # course version
+    redirect_to companies_path, :alert => 'Only admins can create/modify a Company' unless current_user.admin_role  
+    # my version
+    # if current_user && current_user.admin_role
+    #   puts "green light"
+    # else
+    #   puts "red light"
+    #   flash[:alert] = 'Only admins can add companies'
+    #   @companies = Company.all
+    #   render 'index'
+    # end
   end
 
 end
