@@ -1,4 +1,7 @@
 class CompaniesController < ApplicationController
+  before_action :authenticate_user!, only: [:new, :create]
+  before_action :is_user_admin, only: [:create, :new]
+  
   def index
     @companies = Company.all.order('name')
   end
@@ -46,6 +49,17 @@ class CompaniesController < ApplicationController
        render 'edit'
     end    
   end
-
+  
+  
+  def is_user_admin
+    if current_user && current_user.admin_role
+      puts "green light"
+    else
+      puts "red light"
+      flash[:alert] = 'Only admins can add companies'
+      @companies = Company.all
+      render 'index'
+    end
+  end
 
 end

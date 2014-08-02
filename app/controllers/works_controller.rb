@@ -1,4 +1,6 @@
 class WorksController < ApplicationController
+  before_action :authenticate_user!, only: [:new, :create]
+  
   def index
     # if i get the :days parameter then show only the recentdays works
     if ( params[:days] )
@@ -21,6 +23,11 @@ class WorksController < ApplicationController
   # of where the request came from
   # adding sending an email when a new item is created
   def create
+    
+    puts "****************************************************"
+    puts current_user
+    puts "****************************************************"
+    
       @work = Work.new(params[:work].permit(:project_id, :user_id, :datetimeperformed, :hours, :doc))
       # adding the file upload feature
       # uploaded_io gets the file name from the form
@@ -32,6 +39,7 @@ class WorksController < ApplicationController
           end
           @work.doc = uploaded_io.original_filename
       end
+      @work.user = current_user
       respond_to do |format|
         if @work.save
           Usermailer.workcreated_email(@work).deliver

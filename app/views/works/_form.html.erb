@@ -20,11 +20,11 @@
       <%= w.label :project_id %>
       <%= w.collection_select(:project_id, Project.all, :id,:name, prompt: true) %>
    </div>
-   <div>
-      <!-- user -->
+   <!-- the user can no longer be selected, but it's the logged-in user -->
+   <!-- <div>
       <%= w.label :user_id %>
       <%= w.collection_select(:user_id, User.all.order('lname,fname'), :id, :to_s, prompt: true) %>
-   </div>
+   </div> -->
       <!-- the date -->
    <div>
       <%= w.label :datetimeperformed, 'Date/Time Performed' %>
