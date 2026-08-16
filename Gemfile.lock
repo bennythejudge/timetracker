@@ -237,7 +237,7 @@ GEM
       coffee-rails
     tzinfo (2.0.6)
       concurrent-ruby (~> 1.0)
-    uglifier (2.5.1)
+    uglifier (2.7.2)
       execjs (>= 0.3.0)
       json (>= 1.8.0)
     uri (1.1.1)
