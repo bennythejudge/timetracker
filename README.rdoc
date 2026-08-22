@@ -1,5 +1,7 @@
 == README
 
+{<img src="https://badges.production.guardrails.io/bennythejudge/timetracker.svg" alt="GuardRails badge">}[https://www.guardrails.io]
+
 This README would normally document whatever steps are necessary to get the
 application up and running.
 
